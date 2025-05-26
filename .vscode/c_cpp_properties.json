@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/doran/seld/install/turtlebot3_fake_node/include/**",
+        "/home/doran/seld/install/turtlebot3_msgs/include/**",
+        "/home/doran/seld/install/turtlebot3_gazebo/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/doran/seld/src/inference/include/**",
+        "/home/doran/seld/src/turtlebot3/turtlebot3_node/include/**",
+        "/home/doran/seld/src/turtlebot3_simulations/turtlebot3_fake_node/include/**",
+        "/home/doran/seld/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
