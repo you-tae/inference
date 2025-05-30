@@ -368,7 +368,7 @@ def get_accdoa_labels(logits, nb_classes, modality):
     dummy_src_id = torch.zeros_like(distance)
     return sed, dummy_src_id, x, y, distance, on_screen
 
-def classwise_threshold_energy(x, y, low_thresh_cls=(0, 1), low=0.5, high=0.9):       ####################################
+def classwise_threshold_energy(x, y, low_thresh_cls=(0, 1), low=0.7, high=0.9):       ####################################
     energy = torch.sqrt(x**2 + y**2)
     thresh = torch.full_like(energy, high)
     for cls in low_thresh_cls:
