@@ -133,7 +133,7 @@ class InferenceNode(Node):
         for i, (s, az) in enumerate(zip(sed_arr, az_arr)):
             t_event = now - 5.0 + i * 0.1
             msg.times.append(float(t_event))
-            msg.classes.append(int(s))            # 0 또는 1    int(s)
+            msg.classes.append(1)            # 0 또는 1    int(s)
             msg.azimuth.append(float(az))    # 방위각(deg)
             msg.distance.append(0.0)         # 모델에서 계산된다면 그 값으로 대체
             msg.on_screen.append(False)      # 마찬가지로 실제 플래그로 대체
