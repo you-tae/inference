@@ -21,7 +21,7 @@ class InferenceNode(Node):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
         # 모델 로드
-        # model_dir = "/home/doran/seld/src/inference/model_dir" 
+        # model_dir = "/home/jetson/seld/src/inference/model_dir" 
         model_dir = "/home/dbxotjs/seld/src/inference/model_dir"
         params_file = os.path.join(model_dir, 'config.pkl')
         model_checkpoint_file = os.path.join(model_dir, 'best_model.pth')

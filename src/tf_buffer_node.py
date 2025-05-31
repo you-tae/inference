@@ -12,25 +12,25 @@ class ObstaclePublisher(Node):
     def __init__(self):
         super().__init__('obstacle_publisher')
 
-        qos_profile = QoSProfile(
-            depth=1,
-            durability=QoSDurabilityPolicy.TRANSIENT_LOCAL
-        )
+        # # QoS 설정: TRANSIENT_LOCAL → 퍼블리시 후에도 메시지 유지됨
+        # qos_profile = QoSProfile(
+        #     depth=1,
+        #     durability=QoSDurabilityPolicy.TRANSIENT_LOCAL
+        # )
 
-        # QoS 설정: TRANSIENT_LOCAL → 퍼블리시 후에도 메시지 유지됨
         self.sub = self.create_subscription(
             SeldTimedResult,
             '/seld_timed_result',
             self.seld_callback,
             10)
-        self.pub = self.create_publisher(PointCloud2, '/virtual_obstacles', qos_profile)
+        self.pub = self.create_publisher(PointCloud2, '/virtual_obstacles', 10)
 
         # 왼/오 위치 (x, y, z)
         self.RIGHT_POS = np.array([2.0, -4.0, 0.0])
         self.LEFT_POS  = np.array([2.0,  4.0, 0.0])
 
         # 클러스터 생성 설정
-        self.cluster_radius    = 1   # 중심에서 ±0.5 m
+        self.cluster_radius    = 1   # 중심에서 ±1 m
         self.cluster_density   = 10     # 10×10 격자
 
     def seld_callback(self, msg: SeldTimedResult):
