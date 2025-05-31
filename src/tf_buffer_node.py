@@ -26,8 +26,8 @@ class ObstaclePublisher(Node):
         self.pub = self.create_publisher(PointCloud2, '/virtual_obstacles', 10)
 
         # 왼/오 위치 (x, y, z)
-        self.RIGHT_POS = np.array([2.0, -4.0, 0.0])
-        self.LEFT_POS  = np.array([2.0,  4.0, 0.0])
+        self.RIGHT_POS = np.array([3.0, -2.2, 0.0])
+        self.LEFT_POS  = np.array([3.0,  2.2, 0.0])
 
         # 클러스터 생성 설정
         self.cluster_radius    = 1   # 중심에서 ±1 m

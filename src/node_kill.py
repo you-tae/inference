@@ -7,8 +7,8 @@ from geometry_msgs.msg import PoseWithCovarianceStamped
 class NodeKiller(Node):
     def __init__(self):
         super().__init__('inference_killer')
-        self.threshold1 = -3.0
-        self.threshold2 = -4.0
+        self.threshold1 = 1.7
+        self.threshold2 = 2.3
         self.killed = False
         self.launched = False  # 새로 띄울 노드 실행 플래그
 
@@ -24,15 +24,15 @@ class NodeKiller(Node):
         if self.killed and self.launched:
             return
 
-        y = msg.pose.pose.position.y
-        self.get_logger().info(f'[DEBUG] x={y:.3f}')
-        if not self.killed and (y < self.threshold2):
-            self.get_logger().info(f'x={y:.3f} > {self.threshold2} → inference_node 종료 시도')
+        x = msg.pose.pose.position.x
+        self.get_logger().info(f'[DEBUG] x={x:.3f}')
+        if not self.killed and (x > self.threshold2):
+            self.get_logger().info(f'x={x:.3f} > {self.threshold2} → inference_node 종료 시도')
             subprocess.run(['pkill', '-f', 'inference_node'])
             self.killed = True
             self.get_logger().info('✔ inference_node 프로세스를 종료했습니다.')
 
-        if not self.launched and (y < self.threshold1):
+        if not self.launched and (x > self.threshold1):
             self.get_logger().info('▶ tf_buffer_node 프로세스 실행 시도')
             # ros2 run 방식 예시
             subprocess.Popen([
