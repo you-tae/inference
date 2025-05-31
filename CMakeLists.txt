@@ -36,6 +36,7 @@ install(PROGRAMS
   src/probability_mapper.py
   src/utils.py
   src/visualization_node.py
+  src/corner_detector.py
 
   DESTINATION lib/${PROJECT_NAME}
 )
