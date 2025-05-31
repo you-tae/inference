@@ -31,6 +31,7 @@ install(PROGRAMS
   src/loss.py
   src/main_model.py
   src/metrics.py
+  src/node_kill.py
   src/parameters.py
   src/probability_mapper.py
   src/utils.py
