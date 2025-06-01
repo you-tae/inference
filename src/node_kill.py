@@ -7,8 +7,8 @@ from geometry_msgs.msg import PoseWithCovarianceStamped
 class NodeKiller(Node):
     def __init__(self):
         super().__init__('inference_killer')
-        self.threshold1 = 1.7
-        self.threshold2 = 2.3
+        self.threshold1 = 0.5
+        self.threshold2 = 1.0
         self.killed = False
         self.launched = False  # 새로 띄울 노드 실행 플래그
 
