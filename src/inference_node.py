@@ -29,7 +29,8 @@ class InferenceNode(Node):
         # ────────────────────────────────────────────
         # 3) 체크포인트 파일 경로 설정 및 존재 여부 확인
         # ────────────────────────────────────────────
-        model_dir = "/home/dbxotjs/seld/src/inference/model_dir"
+        #model_dir = "/home/dbxotjs/seld/src/inference/model_dir"
+        model_dir = "/home/jetson/turtlebot3_ws/src/inference/model_dir"
         model_checkpoint_file = os.path.join(model_dir, 'best_model.pth')
 
         if not os.path.exists(model_checkpoint_file):
